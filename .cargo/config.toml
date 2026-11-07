@@ -1,0 +1,4 @@
+# The macOS window loop must run on the main thread; give it the same
+# 256 MiB stack used by the worker-thread entry point on Linux/Windows.
+[target.x86_64-apple-darwin]
+rustflags = ["-C", "link-arg=-Wl,-stack_size,0x10000000"]
